@@ -6,6 +6,10 @@ Where I learn to build with pixi.
 Learning to use pixi.js.
 The project should build with es6's syntax and oop structure.
 
-.....jsut getting started.
+5-12-2016   .......start from here.
 
-(The app.js file lay in the root folder was compressed,check the src folder instead.)
+6-12-2016   Start working on sprite!
+
+PS.Use firefox or IE-edge to view the index page,or else host a local server,for Chrome and some other browser won't load local image,(Cross-origin request.)it seem PIXI has a method to work with this issue,will look into it.
+
+PS2.The app.js file lay in the build folder was compressed,check the src folder instead.
