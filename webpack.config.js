@@ -3,8 +3,8 @@ var webpack = require('webpack');
 //var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    context: path.join(__dirname, "/src/js"),
-    entry: "./app.js",
+    context: __dirname,
+    entry: "./src/js/app.js",
     module: {
         loaders: [
             {
@@ -18,8 +18,8 @@ module.exports = {
         ]
     },
     output: {
-        path: path.join(__dirname, "/build"),
-        filename: "app.js"
+        path: __dirname,
+        filename: "/build/app.js"
     },
     plugins: [
         new webpack.DefinePlugin({

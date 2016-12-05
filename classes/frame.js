@@ -1,18 +1,26 @@
-import {resolution, backgroundColor} from '../src/js/init.js';
-var PIXI = require('pixi.js');
+import {
+    PIXI, 
+    resolution, 
+    backgroundColor , 
+    autoRenderer, 
+    Container } from '../src/js/init.js';
 
 export default class Frame {
-    constructor(resolution,backgroundColor) {
+    constructor({resolution,backgroundColor,Option}) {
         this.resolution = resolution;
         this.backgroundColor = backgroundColor;
-        this.renderer = new PIXI.autoDetectRenderer(this.resolution.width, this.resolution.height);
+        this.renderer = new autoRenderer(this.resolution.width, this.resolution.height);
 
     }
 
-    put(root) {
+    putOn(root) {
         root.appendChild(this.renderer.view);
-        this.stage = new PIXI.Container();
-        this.renderer.render(this.stage);        
+        this.stage = new Container();
+        this.renderer.render(this.stage);     
+    }
+
+    render() {
+        this.renderer.render(this.stage);
     }
 
     color(hex) {
