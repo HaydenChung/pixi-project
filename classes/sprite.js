@@ -2,11 +2,12 @@ import {
     PIXI,
     resources,
     loader,
+    Frame
 } from '../src/js/init.js';
-
-import Frame from './frame.js'
 // Import Frame for type checking 'frame'' object in put(),
 // need a workaround.
+
+import check from '../function/checkDefine.js'
 
 export default class Sprite {
     constructor(src){
@@ -92,13 +93,52 @@ export default class Sprite {
     return false;
     }
 
+    move( {position,size,scale,rotation,anchor,pivot} ) {
+        this.loaded.then((res) => {
+            requestAnimationFrame(this.move.bind(this,arguments[0]));
+
+                if(check(position)) {
+                    let {x,y} = position;
+                    check(x)? this.sprite.x += x : null;
+                    check(y)? this.sprite.y += y : null;
+                }
+
+                if(check(size)) {
+                    let {width,height} = size;
+                    check(width)? this.sprite.width += width : null;
+                    check(height)? this.sprite.height += height : null;
+                }
+
+                if(check(scale)) {
+                    let {x,y} = scale;
+                    check(x)? this.sprite.scale.x += x : null;
+                    check(y)? this.sprite.scale.y += y : null;
+                }
+
+                if(check(rotation)) {
+                    this.sprite.rotation += rotation;
+                }
+
+                if(check(anchor)) {
+                    let {x,y} = anchor;
+                    check(x)? this.sprite.anchor.x += x : null;
+                    check(y)? this.sprite.anchor.y += y : null;
+                }
+
+                if(check(pivot)) {
+                    let {x,y} = pivot;
+                    check(x)? this.sprite.pivot.x += x : null;
+                    check(y)? this.sprite.pivot.y += y : null;
+                }
+
+            this.frame.renderer.render(this.frame.stage);            
+            
+        });
+    }
+
     set( {position,size,scale,rotation,anchor,pivot} ) {
         this.loaded.then((res) => {
             if(this.exists('sprite')) {
-
-                function check(item) {
-                    return (typeof item != 'undefined');
-                }
 
                 if(check(position)) {
                     let {x,y} = position;
@@ -109,7 +149,7 @@ export default class Sprite {
                 if(check(size)) {
                     let {width,height} = size;
                     check(width)? this.sprite.width = width : null;
-                    chekc(height)? this.sprite.height = height : null;
+                    check(height)? this.sprite.height = height : null;
                 }
 
                 if(check(scale)) {
@@ -135,7 +175,7 @@ export default class Sprite {
                 }
             }
 
-                //this.frame.renderer.render(this.frame.stage);
+                this.frame.renderer.render(this.frame.stage);
                 return true;
         });
     return false;
