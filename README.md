@@ -12,7 +12,7 @@ The project should build with es6's syntax and oop structure.
 
 7-12-2016   Add a animation class to handle sprite motion.Add a simple demo too,please don't laugh at me....
 
-PS.Use firefox or IE-edge to view the index page,or else host a local server,for Chrome and some other browser won't load local image,(Cross-origin request.)it seem PIXI has a method to work with this issue,will look into it.
+PS.Use firefox or IE-edge to view the index page,or else host a local server,for Chrome and some other browser won't load local image(Cross-origin request.).
 
 PS2.The app.js file lay in the build folder was compressed,check the src folder instead.
 
