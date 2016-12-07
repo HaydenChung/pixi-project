@@ -1,5 +1,4 @@
 import {
-    PIXI, 
     resolution, 
     backgroundColor , 
     autoRenderer, 

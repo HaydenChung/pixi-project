@@ -2,6 +2,7 @@ let PIXI = require('pixi.js');
 
 import Frame from '../../classes/frame.js';
 import Sprite from '../../classes/sprite.js';
+import Animation from '../../classes/animation.js';
 
 const   resolution      = { 'width': 640, 'height': 480},
         backgroundColor = 0x061639,
@@ -9,7 +10,7 @@ const   resolution      = { 'width': 640, 'height': 480},
         autoRenderer    = PIXI.autoDetectRenderer,
         loader          = PIXI.loader,
         resources       = PIXI.loader.resources,
-//        Sprite          = PIXI.Sprite,
+        orgSprite          = PIXI.Sprite,
         TextureCache    = PIXI.utils.TextureCache;
 
 
@@ -21,8 +22,9 @@ export {
     autoRenderer, 
     loader, 
     resources, 
-//    Sprite,
+    orgSprite,
     TextureCache,
     Frame,
     Sprite,
+    Animation,
 };
