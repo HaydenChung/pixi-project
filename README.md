@@ -53,7 +53,7 @@ catRun.add( {position:{x:1}},1500 )
 setTimeout(catRun.stop.bind(catRun) , 12000);
 
 setTimeout(() => {
-//Motion objects are reuseable,infact if you did'nt stop() them,you could attach new motion to them with add().run().
+//Motion objects are reuseable,they could attach next motion with add().run() even when they were running.
     catRun.add( {position:{x:-1,y:-1}},3000 )
             .run();
     },14000);
