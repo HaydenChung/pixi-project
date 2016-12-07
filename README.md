@@ -25,18 +25,16 @@ import {resolution,
     Frame, 
     Sprite,
     Animation, 
-    resources, 
-    loader} from "./init.js";
-
-import check from '../../function/checkDefine.js'
+    } from "./init.js";
 
 let app = document.querySelector('#app');
-let frame = new Frame({resolution});
 
+//The containner
+let frame = new Frame({resolution});
 frame.color(backgroundColor).putOn(app);
 
+//A new Sprite.
 let cat = new Sprite('./sprite/image/cat.png');
-
 cat.putOn(frame);
 cat.set( {
     position:{x:128,y:128},
@@ -44,17 +42,19 @@ cat.set( {
     scale:{x:0.5,y:0.5} 
 });
 
+//A new motion for the sprite 'cat'.
 let catRun = new Animation(cat);
 catRun.add( {position:{x:1}},1500 )
         .add( {position:{y:-1},rotation:0.01,scale:{x:0.01,y:0.01}},1500 )
         .add( {position:{x:-1}},1500)
         .add( {position:{y:1},rotation:-0.01,scale:{x:-0.01,y:-0.01}},1500)
-        .run(true);
+        .run(true); // 'true' mean loop,to think about it,I may want to change the word....
 
 setTimeout(catRun.stop.bind(catRun) , 12000);
 
 setTimeout(() => {
-    catRun.add( {position:{x:-1,y:-1}},3000 )
+//Motion objects are reuseable,infact if you did'nt stop() them,you could attach new motion to them with add().run().
+    catRun.add( {position:{x:-1,y:-1}},3000 )
             .run();
     },14000);
 
@@ -62,7 +62,7 @@ console.log('Running!!!');
 
 </pre>
 
-The idea is to create an object than controt it's behaviour with command like set/put/add/run.
-I would love to keep it as simple as it been.
+The idea is to create an object than controt it's behaviour with commands like set/put/add/run.
+I would love to keep it as simple as it be.
 
-Here's how it look like: https://rawgit.com/HaydenChung/pixi-project/master/index.html
+Here's how it looks: https://rawgit.com/HaydenChung/pixi-project/master/index.html
