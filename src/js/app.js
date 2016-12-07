@@ -3,11 +3,8 @@ import {resolution,
     backgroundColor, 
     Frame, 
     Sprite,
-    Animation, 
-    resources, 
-    loader} from "./init.js";
-
-import check from '../../function/checkDefine.js'
+    Animation,  
+    } from "./init.js";
 
 let app = document.querySelector('#app');
 let frame = new Frame({resolution});
