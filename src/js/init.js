@@ -4,7 +4,7 @@ import Frame from '../../classes/frame.js';
 import Sprite from '../../classes/sprite.js';
 import Animation from '../../classes/animation.js';
 
-const   resolution      = { 'width': 640, 'height': 480},
+const   resolution      = { 'width': 800, 'height': 800},
         backgroundColor = 0x061639,
         Container       = PIXI.Container,
         autoRenderer    = PIXI.autoDetectRenderer,

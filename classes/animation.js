@@ -9,13 +9,41 @@ export default class Animation {
         return this;
     }
 
+    moveTo(loop = false) {
+        let toDo = this.sprite.toDo;
+        if(loop === false) {
+            this.sprite.stop();
+            this.sprite.toDo = [];
+        }
+        toDo.reduce((prev, newToDo) => {
+            return prev.then(() => {
+                return new Promise((resolve,reject) => {
+                    this.sprite.moveTo( newToDo[0], newToDo[1] ,resolve );
+                    this.onReject = reject;
+                    if(this.breakLoop === true) {
+                        reject(); 
+                    }
+                });
+        }).catch(() =>{
+            loop = false;
+        });
+    },Promise.resolve()).then(() =>{
+            if(loop === true) {
+                this.moveTo(true);
+            } else{
+                this.breakLoop = false;
+                this.sprite.stop();
+                this.sprite.toDo=[];         
+            }
+        })
+    }
+
     run(loop = false) {
         let toDo = this.sprite.toDo;
         if(loop === false ) {
             this.sprite.stop();
             this.sprite.toDo = [];
         }
-
         //Prev is a promise object return from the center of the nest.
         toDo.reduce((prev, newToDo) => {
             //This statement waiting for the prev promise,
