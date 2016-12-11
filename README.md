@@ -49,9 +49,6 @@ playGround.addEventListener('click',(event)=> {
 document.querySelector('canvas').addEventListener('touchstart',(event) => {
     pushNewCat(i,event);
 
-    i++;
-});
-
 function pushNewCat(i,event) {
     let cats = new Sprite('./sprite/image/cat.png');
 
